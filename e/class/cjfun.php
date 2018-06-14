@@ -774,9 +774,13 @@ function ReturnCJ_str($text,$exp,$info){
 	//替换回车
 	$text=ReplaceFc($text);
 	$rep="[!--".$exp."--]";
+	//echo $info;
+	//echo $text;
 	//替换
 	$num=CountCJ_site($text,$exp);//取得符号位置
 	$zztext=RepInfoZZ($text,$exp,0);
+	//echo $zztext;
+	//exit();
 	$text1=stripSlashes(preg_replace($zztext,$e1."\\".$num.$e2,$info));
 	$r=explode($e1,$text1);
 	$r1=explode($e2,$r[1]);
@@ -1176,8 +1180,10 @@ function ViewCjUrl($classid,$listpage,$userid,$username){
 	}
 	//替换回车
 	$text1=ReplaceFc($text1);
+
 	//替换网页变量
 	$text1=RepCjPagetextStr($text1,$r);
+	//echo $text1;exit();
 	//区域块
 	if($r[zz_smallurl])
 	{
@@ -1936,6 +1942,7 @@ function ViewGetNewsInfo($classid,$newspage,$userid,$username){
 	$info=RepCjPagetextStr($info,$r);
 	//替换回车
 	$info=ReplaceFc($info);
+	//echo $info;exit();
 	//-----------------
 	$ifield="";
 	$ivalue="";
@@ -2040,6 +2047,8 @@ function ViewGetNewsInfo($classid,$newspage,$userid,$username){
 		}
 		else
 		{$zzvalue=$r[$var1];}
+	
+	
 		//------------------------------信息来源
 		if($dofield=="befrom"||$dofield=="writer")
 		{
